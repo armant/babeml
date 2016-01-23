@@ -23,3 +23,11 @@ nav .mobile.only.row .ui.vertical.menu {
 table.selectable tr:hover {
   cursor: pointer !important;
 }
+
+.center {
+  text-align: center;
+}
+
+#dropzone:hover {
+  cursor: pointer;
+}

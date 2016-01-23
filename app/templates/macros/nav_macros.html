@@ -9,6 +9,29 @@
     {% endfor %}
 {% endmacro %}
 
+{% macro render_nav_no_user() %}
+    <nav class="ui navigation grid {% if endpoints %}has-submenu{% endif %}">
+        <div class="computer tablet only row">
+            <div class="ui fixed inverted black main menu">
+                <div class="ui container">
+                    <a class="header item" href="{{ url_for('main.index') }}">{{ config.APP_NAME }}</a>
+                    <div class="right menu">
+                    </div>
+                </div>
+            </div>
+
+            {# Endpoints go into a submenu #}
+            {% if endpoints %}
+                <div class="ui fixed {{ count + ' item' }} labeled icon fluid stackable sub menu">
+                    <div class="ui stackable container">
+                        {{ render_menu_items(endpoints) }}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </nav>
+{% endmacro %}
+
 {% macro header_items(current_user) %}
     <a class="header item" href="{{ url_for('main.index') }}">{{ config.APP_NAME }}</a>
     {% if current_user.is_authenticated() %}
