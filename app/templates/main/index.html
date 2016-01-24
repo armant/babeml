@@ -4,6 +4,8 @@
   <div class="ui text container center">
     <h1>Translate any image</h1>
     <br><br><br><br><br><br><br><br>
-    <form action="/upload-target" class="dropzone" id="dropzone"></form>
+    <form action="/" class="dropzone" id="dropzone">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    </form>
   </div>
 {% endblock %}
